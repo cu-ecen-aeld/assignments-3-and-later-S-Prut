@@ -99,8 +99,8 @@ make CONFIG_PREFIX=${OUTDIR}/rootfs ARCH=arm64 CROSS_COMPILE=aarch64-none-linux-
 cd "$OUTDIR"
 # check library dependencies for our application (writer)
 echo "Library dependencies"
-${CROSS_COMPILE}readelf -a bin/busybox | grep "program interpreter"
-${CROSS_COMPILE}readelf -a bin/busybox | grep "Shared library"
+${CROSS_COMPILE}readelf -a rootfs/bin/busybox | grep "program interpreter"
+${CROSS_COMPILE}readelf -a rootfs/bin/busybox | grep "Shared library"
 
 # TODO: Add library dependencies to rootfs
 cp -v ${SYSROOT}/lib64/libc.so.6 ${OUTDIR}/rootfs/lib64
@@ -132,8 +132,9 @@ ${CROSS_COMPILE}readelf -a writer | grep "Shared library"
 cp -v writer ${OUTDIR}/rootfs/home
 cp -v finder.sh ${OUTDIR}/rootfs/home
 cp -v finder-test.sh ${OUTDIR}/rootfs/home
+cp -v writer.sh ${OUTDIR}/rootfs/home
 cp -R -v -L ./conf ${OUTDIR}/rootfs/home
-cp -v ~/sprut-assignments/assignment3/finder-app/autorun-qemu.sh ${OUTDIR}/rootfs/home
+cp -v autorun-qemu.sh ${OUTDIR}/rootfs/home
 # --- END TODO: Copy the finder related scripts and executables ---
 
 # TODO: Chown the root directory
