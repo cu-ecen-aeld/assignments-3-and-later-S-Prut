@@ -10,6 +10,7 @@ WRITESTR=AELD_IS_FUN
 WRITEDIR=/tmp/aeld-data
 FINDER_APP_PATH=$(realpath $(dirname $0))
 FINDER_CONF_PATH="${FINDER_APP_PATH}/conf"
+RESULT_FILE="/tmp/assignment4-result.txt"
 username=$(cat ${FINDER_CONF_PATH}/username.txt)
 
 if [ $# -lt 3 ]
