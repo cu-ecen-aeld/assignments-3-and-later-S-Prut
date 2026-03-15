@@ -9,7 +9,7 @@ NUMFILES=10
 WRITESTR=AELD_IS_FUN
 WRITEDIR=/tmp/aeld-data
 FINDER_APP_PATH=$(realpath $(dirname $0))
-FINDER_CONF_PATH="${FINDER_APP_PATH}/conf"
+FINDER_CONF_PATH="/etc/finder-app/conf"
 RESULT_FILE="/tmp/assignment4-result.txt"
 username=$(cat ${FINDER_CONF_PATH}/username.txt)
 
