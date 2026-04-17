@@ -15,10 +15,11 @@
 //--------------------------
 // definitions section
 //--------------------------
-//#define DEBUG_MODE_EN //to be removed
+//#define DEBUG_MODE_EN                   //to be removed
 #define NEW_LINE                   '\n'
 #define NULL_TERMINATE             '\0'
-#define IP_ADDRESS          "127.0.0.1"
+//#define IP_ADDRESS          "127.0.0.1"
+#define IP_ADDRESS          "0.0.0.0"
 #define PORT                     (9000) // the port users will be connecting to
 #define BACKLOG                     (5) // how many pending connections queue holds
 #define PATH_TO_FILE         "/var/tmp"
