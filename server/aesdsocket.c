@@ -19,7 +19,6 @@
 #define NEW_LINE                   '\n'
 #define NULL_TERMINATE             '\0'
 //#define IP_ADDRESS          "127.0.0.1"
-#define IP_ADDRESS          "0.0.0.0"
 #define PORT                     (9000) // the port users will be connecting to
 #define BACKLOG                     (5) // how many pending connections queue holds
 #define PATH_TO_FILE         "/var/tmp"
@@ -214,7 +213,12 @@ ret_code_type send_file_to_socket(int socket_id, char* file_path) {
    return ret_success;
 }
 
-
+/**
+ * @fn main
+ *     The main function
+ * @param argc - Number of arguments
+ * @param argv - Array of arguments
+ */
 int main (int argc, char *argv[]) {
    char* data_buffer = malloc(BUFFER_SIZE); //pointer to message data buffer
    //char data_buffer[BUFF_SIZE];
@@ -283,8 +287,8 @@ int main (int argc, char *argv[]) {
    struct sockaddr_in server_sockaddr = {
       .sin_family      = AF_INET,
       .sin_port        = htons(PORT),
-      .sin_addr.s_addr = inet_addr(IP_ADDRESS) //accept only local(host) address
-      //.sin_addr.s_addr = INADDR_ANY
+      //.sin_addr.s_addr = inet_addr(IP_ADDRESS) //accept only local(host) address
+      .sin_addr.s_addr = INADDR_ANY            //accept any address
    };
    memset(server_sockaddr.sin_zero, '\0', sizeof server_sockaddr.sin_zero);
 
