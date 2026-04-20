@@ -1,12 +1,9 @@
 #! /bin/sh
 
-ARGUMENTS= "-d"
-
 case "$1" in
     start)
         echo "Starting aesdsocket server"
-        start-stop-daemon -S -n aesdsocket \
-                          -a /usr/bin/aesdsocket -- $ARGUMENTS
+        start-stop-daemon -S -n aesdsocket -x /usr/bin/aesdsocket -- -d
         ;;
     stop)
         echo "Stopping aesdsocket server"
